@@ -1,4 +1,4 @@
-const locations = [
+window.gameLocations = [
     {
         city: "amsterdam",
         country: "netherlands",

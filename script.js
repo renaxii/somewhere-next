@@ -40,12 +40,31 @@ let happiness = 50;
 let visited = [];
 let timerInterval = null;
 
+function fitScreen(screen) {
+    screen.style.transition = "none";
+    screen.style.transform = "none";
+    screen.style.zoom = "1";
+    screen.offsetHeight;
+
+    const scale = Math.min(
+        1,
+        window.innerWidth / screen.scrollWidth,
+        window.innerHeight / screen.scrollHeight
+    );
+
+    screen.style.transformOrigin = "top center";
+    screen.style.transform = `scale(${scale})`;
+}
+
 function showScreen(screen) {
     startScreen.classList.add("hidden");
     destinationScreen.classList.add("hidden");
     exploreScreen.classList.add("hidden");
     resultScreen.classList.add("hidden");
     screen.classList.remove("hidden");
+    window.scrollTo(0, 0);
+    fitScreen(screen);
+    requestAnimationFrame(() => fitScreen(screen));
 }
 
 function formatTime(minutes) {
@@ -68,7 +87,9 @@ function updateStats() {
 }
 
 function pickLocation() {
-    currentLocation = locations[Math.floor(Math.random() * locations.length)];
+    currentLocation = window.gameLocations[
+        Math.floor(Math.random() * window.gameLocations.length)
+    ];
 
     cityName.textContent = currentLocation.city;
     countryName.textContent = currentLocation.country;
@@ -201,4 +222,12 @@ finishButton.addEventListener("click", () => {
 againButton.addEventListener("click", () => {
     clearInterval(timerInterval);
     showScreen(startScreen);
+});
+
+fitScreen(startScreen);
+window.addEventListener("resize", () => {
+    const activeScreen = document.querySelector(".screen:not(.hidden)");
+    if (activeScreen) {
+        fitScreen(activeScreen);
+    }
 });

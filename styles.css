@@ -18,6 +18,7 @@ html,
 body {
     margin: 0;
     min-height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -45,7 +46,7 @@ button {
         transform 0.35s ease;
 }
 
-.hidden {
+.screen.hidden {
     display: none;
 }
 
@@ -127,7 +128,7 @@ h2 {
 
 .start-footer {
     position: absolute;
-    bottom: 32px;
+    bottom: 68px;
     left: 7vw;
     color: var(--muted);
     font-size: 10px;
@@ -168,11 +169,11 @@ h2 {
 
 .destination-content {
     max-width: 900px;
-    margin: 13vh auto 0;
+    margin: 7vh auto 0;
 }
 
 .destination-heading {
-    margin-bottom: 55px;
+    margin-bottom: 28px;
 }
 
 .country {
@@ -275,7 +276,7 @@ h2 {
 
 .explore-layout {
     max-width: 1050px;
-    margin: 10vh auto 0;
+    margin: 7vh auto 0;
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 90px;
@@ -408,12 +409,12 @@ h2 {
 
 .result-content {
     max-width: 750px;
-    margin: 9vh auto 0;
+    margin: 1vh auto 0;
 }
 
 .result-subtitle {
     color: var(--muted);
-    margin: 22px 0 50px;
+    margin: 18px 0 25px;
 }
 
 .result-stats {
@@ -447,9 +448,9 @@ h2 {
 
 .memory-card {
     background: #dfe7df;
-    margin: 45px 0 35px;
+    margin: 18px 0;
     padding: 25px;
-    min-height: 170px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -474,7 +475,7 @@ h2 {
 
 @media (max-width: 750px) {
     .screen {
-        padding: 28px 25px;
+        padding: 20px 25px;
     }
 
     .start-content {
@@ -483,21 +484,25 @@ h2 {
 
     .start-footer {
         left: 25px;
-        bottom: 28px;
+        bottom: 48px;
     }
 
     h1 {
         font-size: 65px;
     }
 
+    .result-content h2 {
+        font-size: 42px;
+    }
+
     .destination-content,
     .result-content {
-        margin-top: 10vh;
+        margin-top: 0;
     }
 
     .ticket-top {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
     }
 
     .route-line {
@@ -505,7 +510,7 @@ h2 {
     }
 
     .align-right {
-        text-align: left;
+        text-align: right;
     }
 
     .ticket-bottom {
@@ -515,29 +520,76 @@ h2 {
 
     .explore-layout {
         grid-template-columns: 1fr;
-        gap: 45px;
-        margin-top: 8vh;
+        gap: 12px;
+        margin-top: 0;
+    }
+
+    .stats {
+        margin-top: 0;
+        position: relative;
+        top: -10px;
+    }
+
+    .stats div {
+        padding: 8px 0;
     }
 
     .places {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .place {
+        min-height: 100px;
+        padding: 6px;
+    }
+
+    .place h3 {
+        font-size: 16px;
+    }
+
+    .place p,
+    .place-happiness {
+        font-size: 9px;
     }
 
     .finish-button {
-        position: static;
-        margin: 35px 0 0;
+        right: 25px;
+        bottom: 12px;
     }
 
     .screen-number {
-        bottom: 28px;
+        bottom: 20px;
         left: 25px;
     }
 
     .result-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .result-stat:nth-child(odd) {
-        margin-right: 0;
+        margin-right: 18px;
+    }
+
+    .result-stat {
+        padding: 7px 0;
+    }
+
+    .result-stat strong {
+        font-size: 15px;
+    }
+
+    .result-subtitle {
+        margin: 12px 0 20px;
+    }
+
+    .memory-card {
+        min-height: 85px;
+        margin: 14px 0;
+        padding: 12px;
+    }
+
+    .memory-card p {
+        font-size: 14px;
     }
 }
