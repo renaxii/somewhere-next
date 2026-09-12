@@ -1,0 +1,1 @@
+idea: you have a layover in the city and get to decide where to go
