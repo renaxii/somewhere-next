@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>somewhere next</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <main class="game">
+        <section class="screen start-screen" id="startScreen">
+            <div class="start-content">
+                <p class="eyebrow">a little travel game</p>
+                <h1>
+                    somewhere<br>
+                    <span>next</span>
+                </h1>
+                <p class="intro">
+                    you have a few hours before your next flight.
+                    make the most of them!
+                </p>
+                <button class="primary-button" id="startButton" type="button">
+                    find somewhere next
+                    <span>→</span>
+                </button>
+            </div>
+
+            <div class="start-footer">
+                <span>
+                    made for 
+                    <a href="https://hackclub.com/" target="_blank" rel="noopener noreferrer">
+                        hack club
+                    </a>
+                    <a href="https://sunbeam.hackclub.com/" target="_blank" rel="noopener noreferrer">
+                        sunbeam global
+                    </a>
+                </span>
+            </div>
+        </section>
+
+        <section class="screen destination-screen hidden" id="destinationScreen">
+            <header class="topbar">
+                <div class="logo">somewhere next</div>
+                <div class="flight-small">
+                    <span id="smallOrigin">SJC</span>
+                    <span>→</span>
+                    <span id="smallDestination">AMS</span>
+                </div>
+            </header>
+
+            <div class="destination-content">
+                <div class="destination-heading">
+                    <p class="eyebrow">your next stop</p>
+                    <h2 id="cityName">amsterdam</h2>
+                    <p class="country" id="countryName">
+                        netherlands
+                    </p>
+                </div>
+
+                <div class="flight-ticket">
+                    <div class="ticket-top">
+                        <div>
+                            <span class="label">from</span>
+                            <strong id="originCode">SJC</strong>
+                            <small>san jose</small>
+                        </div>
+                        <div class="route-line">
+                            <span></span>
+                            <span class="plane">✈</span>
+                            <span></span>
+                        </div>
+                        <div class="align-right">
+                            <span class="label">to</span>
+                            <strong id="destinationCode">AMS</strong>
+                            <small id="destinationCity">
+                                amsterdam
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-bottom">
+                        <div>
+                            <span class="label">layover</span>
+                            <strong id="layoverTime">06:42</strong>
+                        </div>
+                        <div>
+                            <span class="label">gate</span>
+                            <strong id="gate">B17</strong>
+                        </div>
+                        <div>
+                            <span class="label">departs</span>
+                            <strong id="departureTime">18:40</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="primary-button" id="exploreButton" type="button">
+                    start exploring
+                    <span>→</span>
+                </button>
+            </div>
+            <div class="screen-number">02 / 04</div>
+        </section>
+
+        <section class="screen explore-screen hidden" id="exploreScreen">
+            <header class="topbar">
+                <div class="logo">somewhere next</div>
+                <div class="countdown">
+                    <span>time left</span>
+                    <strong id="timer">06:42</strong>
+                </div>
+            </header>
+            <div class="explore-layout">
+                <div class="explore-intro">
+                    <p class="eyebrow">you have a few hours</p>
+                    <h2>what sounds good?</h2>
+                    <p>pick somewhere to go. you won't have time to see everything.</p>
+                    <div class="stats">
+                        <div>
+                            <span>time</span>
+                            <strong id="timeStat">06:42</strong>
+                        </div>
+                        <div>
+                            <span>money</span>
+                            <strong id="moneyStat">€45</strong>
+                        </div>
+                        <div>
+                            <span>happiness</span>
+                            <strong id="happinessStat">50</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="places" id="places"></div>
+            </div>
+
+            <button class="finish-button" id="finishButton" type="button">
+                head back to the airport
+            </button>
+            <div class="screen-number">03 / 04</div>
+        </section>
+
+        <section class="screen result-screen hidden" id="resultScreen">
+            <div class="result-content">
+                <p class="eyebrow">your layover</p>
+                <h2 id="resultCity">amsterdam</h2>
+                <p class="result-subtitle" id="resultSubtitle">
+                    you made the most of the time in between.
+                </p>
+
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <span>places visited</span>
+                        <strong id="placesVisited">0</strong>
+                    </div>
+                    <div class="result-stat">
+                        <span>time spent</span>
+                        <strong id="timeSpent">0h 00m</strong>
+                    </div>
+                    <div class="result-stat">
+                        <span>spent</span>
+                        <strong id="moneySpent">€0</strong>
+                    </div>
+                    <div class="result-stat">
+                        <span>happiness</span>
+                        <strong id="finalHappiness">50</strong>
+                    </div>
+                </div>
+
+                <div class="memory-card">
+                    <div class="memory-header">
+                        <span id="memoryCity">AMS</span>
+                        <span id="memoryDate">layover 01</span>
+                    </div>
+                    <p id="memoryText">
+                        not a bad way to spend an afternoon.
+                    </p>
+                    <div class="memory-footer">
+                        <span>somewhere next</span>
+                        <span>✦</span>
+                    </div>
+                </div>
+
+                <button class="primary-button" id="againButton" type="button">
+                    go somewhere next
+                    <span>→</span>
+                </button>
+            </div>
+
+            <div class="screen-number">04 / 04</div>
+        </section>
+
+    </main>
+
+    <script src="./locations.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
